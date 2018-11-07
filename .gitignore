@@ -1,0 +1,3 @@
+.ide
+*.sqlite3
+*.pyc

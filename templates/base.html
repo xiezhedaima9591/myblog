@@ -1,0 +1,43 @@
+{% load staticfiles %}
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>{% block title %}{% endblock %}</title>
+<meta name="keywords" content="个人博客,尹广超的个人博客,跑码的汉子" />
+<meta name="description" content="跑码的汉子,是我个人用来记录个人学习计算机技术和发表看法的个人博客" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="{% static 'css/base.css' %}" rel="stylesheet">
+<link href="{% static 'css/index.css' %}" rel="stylesheet">
+<link href="{% static 'css/m.css' %}" rel="stylesheet">
+
+<!--[if lt IE 9]>
+<script src="{% static 'js/modernizr.js' %}"></script>
+<![endif]-->
+</head>
+<body>
+<header>
+  <div class="tophead">
+    <div class="logo"><a href="{% url 'blog:index' %}">跑码的汉子</a></div>
+    <nav class="topnav" id="topnav">
+      <ul>
+        <li><a href="{% url 'blog:index' %}">网站首页</a></li>
+        <li><a href="{% url 'blog:source-share' %}">资源分享</a></li>
+        <li><a href="{% url 'blog:about-me' 2 %}">关于我</a></li>
+        <li><a href="{% url 'comments:post-content' %}">留言</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<article>
+    {% block main %}
+    {% endblock %}
+    {% block sidebar %}
+    {% endblock %}
+</article>
+<div class="blank"></div>
+<footer>
+  <p>Powered by <a href="{% url 'blog:index' %}">跑码的汉子</a> <span>Page Design By</span><span><a href="http://www.yangqq.com", target="_blank">杨青青</a></span></p>
+</footer>
+</body>
+</html>

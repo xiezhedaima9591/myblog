@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block main %}
+<article>
+  <h1 class="t_nav"><span>虽然做IT两年多了，但感觉还是个菜鸟，还在学习阶段。</span></h1>
+  <div class="ab_box">
+    <div class="leftbox">
+      <div class="newsview">
+        <div class="news_infos">
+            {{ about.talk_to_myself }}
+        </div>
+      </div>
+    </div>
+    <div class="rightbox">
+      <div class="aboutme">
+        <h2 class="hometitle">关于我</h2>
+        <div class="avatar"> <img src="{{ about.photo }}"> </div>
+        <div class="ab_con">
+          <p>网名：{{ about.get_full_name }}</p>
+          <p>职业：{{ about.position }} </p>
+          <p>个人微信：{{ about.we_chat }}</p>
+          <p>邮箱：{{ about.email }}</p>
+        </div>
+      </div>
+      <div class="weixin">
+        <h2 class="hometitle">个人微信</h2>
+        <ul>
+          <img src="{{ about.QR_code }}">
+        </ul>
+      </div>
+    </div>
+  </div>
+</article>
+{% endblock %}

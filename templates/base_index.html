@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load blog_tags %}
+{% block main %}
+{% endblock %}
+{% block sidebar %}
+    <div class="sidebar">
+<div class="about">
+    {% get_web_about_info as about %}
+  <div class="avatar"> <img src="{{ about.photo }}" alt=""> </div>
+  <p class="abname">{{ about.get_full_name }}</p>
+  <p class="abposition">{{ about.position }}</p>
+  <div class="abtext">{{ about.introduction }}</div>
+</div>
+<div class="search">
+  <form action="{% url 'blog:simple-search' %}" method="get" name="searchform" id="searchform">
+    {% csrf_token %}
+    <input name="q" id="keyboard" class="input_text" placeholder="请输入关键词" style="color: rgb(153, 153, 153);" onfocus="if(value=='请输入关键字'){this.style.color='#000';value=''}" onblur="if(value==''){this.style.color='#999';value='请输入关键字'}" type="text">
+    <input name="show" value="title" type="hidden">
+    <input name="tempid" value="1" type="hidden">
+    <input name="tbname" value="news" type="hidden">
+    <input name="Submit" class="input_submit" value="搜索" type="submit">
+  </form>
+</div>
+<div class="cloud">
+  <h2 class="hometitle">归档</h2>
+    {% archives as date_list %}
+  <ul>
+      {% for one_date in date_list %}
+          <li><a href="{% url 'blog:archive-post-list' one_date.year one_date.month %}" title="归档日期">{{ one_date | date:"Y年F" }}</a></li>
+      {% empty %}
+          <p>暂时没有归档</p>
+      {% endfor %}
+  </ul>
+</div>
+<div class="cloud">
+    {% get_tags as tags %}
+  <h2 class="hometitle">标签云</h2>
+  <ul>
+      {% for tag in tags %}
+          <a href="{% url 'blog:tag-post-list' tag.id %}">{{ tag.name }}</a>
+      {% empty %}
+          <p>暂时没有标签</p>
+      {% endfor %}
+  </ul>
+</div>
+<div class="cloud">
+  <h2 class="hometitle">分类</h2>
+    {% get_category as category_list %}
+  <ul>
+      {% for one_category in category_list %}
+        <li><b><a href="{% url 'blog:category-post-list' one_category.id %}">{{ one_category.name }}({{ one_category.num_posts }})</a></b></li>
+      {% empty %}
+          <p>暂时没有分类</p>
+      {% endfor %}
+  </ul>
+</div>
+<div class="weixin">
+  <h2 class="hometitle">点击下方图标订阅RSS</h2>
+  <ul>
+    <a href="{% url 'rss' %}"><img src="{% static 'images/rss.jpg' %}"></a>
+  </ul>
+</div>
+</div>
+{% endblock %}

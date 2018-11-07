@@ -1,0 +1,91 @@
+{% extends 'base_detail.html' %}
+{% load blog_tags %}
+{% block main %}
+
+  <div class="infos">
+    <div class="newsview">
+      <h3 class="news_title">{{ post.title }}</h3>
+      <div class="news_author"><span class="au01"><a href="mailto:dancesmiling@qq.com">{{ post.author.get_full_name }}</a></span><span class="au02">{{ post.create_time | date:"Y-m-j" }}</span><span class="au03">共<b><script src="/e/public/ViewClick/?classid=5&amp;id=816&amp;addclick=1"></script>{{ post.views }}</b>次浏览</span></div>
+      <div class="tags"><a href="/e/tags/?tagname=%B8%F6%C8%CB%B2%A9%BF%CD&amp;tempid=13" target="_blank">{{ post.category }}</a> &nbsp; <a href="/e/tags/?tagname=%D0%A1%CA%C0%BD%E7&amp;tempid=13" target="_blank">{{ post.tags.first }}</a></div>
+      <div class="news_about"><strong>摘&nbsp;要:</strong>{{ post.summary }}</div>
+      <div class="news_infos">
+          {{ post.body | safe }}
+    &nbsp; </div>
+    </div>
+    <div class="share"> </div>
+    <div class="nextinfo">
+        {% get_pre_post post.id as pre_post %}
+        {% if pre_post %}
+            <p>上一篇：<a href="{{ pre_post.get_absolute_url }}">{{ pre_post.title }}</a></p>
+        {% else %}
+            <p>这是第一篇文章</p>
+        {% endif %}
+        {% get_aft_post post.id as aft_post %}
+        {% if aft_post %}
+          <p>下一篇：<a href="{{ aft_post.get_absolute_url }}">{{ aft_post.title }}</a></p>
+        {% else %}
+          <p>这是最后一篇了</p>
+        {% endif %}
+    </div>
+    <div class="otherlink">
+      <h2>相关文章</h2>
+        {% get_relative_post post as post_list %}
+      <ul>
+          {% for post in post_list %}
+            <li><a href="{{ post.get_absolute_url }}" title="{{ post.title }}">{{ post.title }}</a></li>
+          {% endfor %}
+      </ul>
+    </div>
+    <div class="news_pl">
+      <h2>文章评论</h2>
+      <ul>
+          {% for comment in comment_list %}
+            <div class="gbko">
+                <span>{{ comment.name }}</span>
+                <time>{{ comment.created_time }}</time>
+                <div>{{ comment.text }}</div>
+            </div>
+          {% empty %}
+            <p>暂无评论</p>
+          {% endfor %}
+      </ul>
+    <div>
+        <form action="{% url 'comments:post_comment' post.id %}" method="post">
+            {% csrf_token %}
+            <div class="row1">
+                <div class="col-md-4">
+                    <label for="{{ form.name.id_for_label }}">名字:</label>
+                    {{ form.name }}
+                    {{ form.name.errors }}
+                </div>
+                <div class="col-md-4">
+                    <label for="{{ form.email.id_for_label }}">邮箱:</label>
+                    {{ form.email }}
+                    {{ form.email.errors }}
+                </div>
+                <div class="col-md-12">
+                    <label for="{{ form.text.id_for_label }}">评论:</label>
+                    {{ form.text }}
+                    {{ form.text.errors }}
+                    <button type="submit" class="comment-btn">发表</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    </div>
+  </div>
+{% endblock %}
+
+<script type="text/javascript">
+jQuery.noConflict();
+jQuery(function() {
+    var elm = jQuery('#left_flow2');
+    var startPos = jQuery(elm).offset().top;
+    jQuery.event.add(window, "scroll", function() {
+        var p = jQuery(window).scrollTop();
+        jQuery(elm).css('position',((p) > startPos) ? 'fixed' : '');
+
+        jQuery(elm).css('top',((p) > startPos) ? '0' : '');
+    });
+});
+</script>
