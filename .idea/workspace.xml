@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b39beb0a-d81b-4a88-a752-396734dfd0b6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/templates/blog/contact.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/blog/contact.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -106,16 +106,16 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/blog/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="104">
-              <caret line="111" column="18" selection-start-line="111" selection-start-column="18" selection-end-line="111" selection-end-column="18" />
+            <state relative-caret-position="484">
+              <caret line="221" column="29" selection-start-line="221" selection-start-column="29" selection-end-line="221" selection-end-column="29" />
               <folding>
                 <element signature="e#24#77#0" expanded="true" />
-                <marker date="1541515480571" expanded="true" signature="2836:2858" ph="..." />
-                <marker date="1541515480571" expanded="true" signature="2894:3020" ph="..." />
-                <marker date="1541515480571" expanded="true" signature="3053:3058" ph="..." />
+                <marker date="1541690624073" expanded="true" signature="2836:2858" ph="..." />
+                <marker date="1541690624073" expanded="true" signature="2894:3020" ph="..." />
+                <marker date="1541690624073" expanded="true" signature="3053:3058" ph="..." />
               </folding>
             </state>
           </provider>
@@ -157,7 +157,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/blog/contact.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="228">
@@ -195,8 +195,8 @@
       <find>for</find>
       <find>ImageField</find>
       <find>img</find>
-      <find>bootstrap</find>
       <find>link</find>
+      <find>bootstrap</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -212,7 +212,6 @@
         <option value="$PROJECT_DIR$/static/blog/css/index.css" />
         <option value="$PROJECT_DIR$/blog/templatetags/blog_tags.py" />
         <option value="$PROJECT_DIR$/templates/blog/detail.html" />
-        <option value="$PROJECT_DIR$/blog/views.py" />
         <option value="$PROJECT_DIR$/comments/models.py" />
         <option value="$PROJECT_DIR$/comments/forms.py" />
         <option value="$PROJECT_DIR$/comments/views.py" />
@@ -231,6 +230,7 @@
         <option value="$PROJECT_DIR$/templates/base_index.html" />
         <option value="$PROJECT_DIR$/templates/blog/index.html" />
         <option value="$PROJECT_DIR$/templates/blog/contact.html" />
+        <option value="$PROJECT_DIR$/blog/views.py" />
       </list>
     </option>
   </component>
@@ -649,19 +649,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/blog/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="111" column="18" selection-start-line="111" selection-start-column="18" selection-end-line="111" selection-end-column="18" />
-          <folding>
-            <element signature="e#24#77#0" expanded="true" />
-            <marker date="1541515480571" expanded="true" signature="2836:2858" ph="..." />
-            <marker date="1541515480571" expanded="true" signature="2894:3020" ph="..." />
-            <marker date="1541515480571" expanded="true" signature="3053:3058" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/blog/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
@@ -722,6 +709,19 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="228">
           <caret line="12" column="61" lean-forward="true" selection-start-line="12" selection-start-column="61" selection-end-line="12" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blog/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="484">
+          <caret line="221" column="29" selection-start-line="221" selection-start-column="29" selection-end-line="221" selection-end-column="29" />
+          <folding>
+            <element signature="e#24#77#0" expanded="true" />
+            <marker date="1541690624073" expanded="true" signature="2836:2858" ph="..." />
+            <marker date="1541690624073" expanded="true" signature="2894:3020" ph="..." />
+            <marker date="1541690624073" expanded="true" signature="3053:3058" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>

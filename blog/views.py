@@ -220,7 +220,6 @@ def search(request):
 
     if not q:
         error_msg = u'请输入关键词'
-        print(error_msg)
         return render(request, 'blog/index.html', {'error_msg': error_msg})
 
     post_list = Post.objects.filter(Q(title__contains=q) | Q(body__icontains=q))
