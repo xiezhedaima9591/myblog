@@ -14,7 +14,7 @@
     <div class="rightbox">
       <div class="aboutme">
         <h2 class="hometitle">关于我</h2>
-        <div class="avatar"> <img src="{% static about.photo %}"> </div>
+        <div class="avatar"> <img src="{{ about.photo.url }}"> </div>
         <div class="ab_con">
           <p>网名：{{ about.get_full_name }}</p>
           <p>职业：{{ about.position }} </p>
@@ -25,7 +25,7 @@
       <div class="weixin">
         <h2 class="hometitle">个人微信</h2>
         <ul>
-          <img src="{% static about.QR_code %}">
+          <img src="{{ about.QR_code.url }}">
         </ul>
       </div>
     </div>

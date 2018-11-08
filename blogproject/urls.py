@@ -15,8 +15,6 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from django.views.static import serve
-from blogproject.settings import MEDIA_ROOT
 from blog.feeds import AllPostsRssFeed
 
 
@@ -24,6 +22,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('blog.urls')),
     path('', include('comments.urls')),
-    path('images/<str:path>', serve, {'document_root': MEDIA_ROOT}),
     path('all/rss/', AllPostsRssFeed(), name='rss'),
 ]
