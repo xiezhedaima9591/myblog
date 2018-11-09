@@ -42,9 +42,9 @@ class User(User):
     重写User,增加职业和简介字段
     """
     we_chat = models.CharField(max_length=50, blank=True, null=True, verbose_name=u'微信号')
-    QR_code = models.ImageField(upload_to='images/user_photo/%Y/%m', default='images/default.jpg',
+    QR_code = models.ImageField(upload_to='media/user_photo/%Y/%m', default='images/default.jpg',
                                 max_length=100, verbose_name=u'微信二维码')
-    photo = models.ImageField(upload_to='images/user_photo/%Y/%m', default='images/default.jpg',
+    photo = models.ImageField(upload_to='media/user_photo/%Y/%m', default='images/default.jpg',
                               max_length=100, verbose_name=u'用户头像')
     position = models.CharField(max_length=50, blank=True, null=True, verbose_name=u'职业')
     introduction = models.CharField(max_length=255, verbose_name=u'用户简介')
@@ -79,7 +79,7 @@ class Post(models.Model):
     tags = models.ManyToManyField(Tag, verbose_name=u'博文标签')
     author = models.ForeignKey(User, verbose_name=u'作者', on_delete=True)
     views = models.PositiveIntegerField(default=0)
-    picture = models.ImageField(upload_to='images/post_img/%Y/%m', default='images/text02.jpg',
+    picture = models.ImageField(upload_to='media/post_img/%Y/%m', default='images/text02.jpg',
                                 max_length=100, verbose_name=u'文章配图')
 
     def __str__(self):
