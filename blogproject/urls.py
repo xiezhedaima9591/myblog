@@ -18,6 +18,7 @@ from django.urls import path, include, re_path
 from blog.feeds import AllPostsRssFeed
 from django.contrib.staticfiles import views
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from .settings import MEDIA_ROOT
 
 
 urlpatterns = [
@@ -25,7 +26,7 @@ urlpatterns = [
     path('', include('blog.urls')),
     path('', include('comments.urls')),
     path('all/rss/', AllPostsRssFeed(), name='rss'),
-    re_path(r'^media/(?P<path>.*)$', views.serve)
+    re_path(r'^media/(?P<path>.*)$', views.serve, {'document_root': MEDIA_ROOT})
 ]
 
 urlpatterns += staticfiles_urlpatterns()
