@@ -14,8 +14,9 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, re_path
 from blog.feeds import AllPostsRssFeed
+from django.contrib.staticfiles import views
 
 
 urlpatterns = [
@@ -23,4 +24,5 @@ urlpatterns = [
     path('', include('blog.urls')),
     path('', include('comments.urls')),
     path('all/rss/', AllPostsRssFeed(), name='rss'),
+    re_path(r'^media/(?P<path>.*)$', views.serve)
 ]

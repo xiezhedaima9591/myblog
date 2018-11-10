@@ -15,8 +15,6 @@ Including another URLconf
 """
 from django.urls import path
 from . import views
-from django.conf import settings
-from django.conf.urls.static import static
 
 app_name = 'blog'
 
@@ -29,4 +27,4 @@ urlpatterns = [
     path('about/<int:pk>', views.AboutMeDetailView.as_view(), name='about-me'),
     path('source_list/', views.SourceListView.as_view(), name='source-share'),
     path('search/', views.search, name='simple-search'),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]
