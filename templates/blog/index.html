@@ -5,7 +5,7 @@
     <div class="blogs">
         <ul>
             {% for post in post_list %}
-                <li> <span class="blogpic"><a href="{{ post.get_absolute_url }}"><img src="{{ MEDIA_URL }}{{ post.picture }}"></a></span>
+                <li> <span class="blogpic"><a href="{{ post.get_absolute_url }}"><img src="{{ post.picture.url }}"></a></span>
                     <h3 class="blogtitle"><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
                     <div class="bloginfo">
                     <p>{{ post.summary }}</p>

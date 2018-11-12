@@ -7,7 +7,7 @@
     <div class="sidebar">
 <div class="about">
     {% get_web_about_info as about %}
-  <div class="avatar"> <img src="{{ MEDIA_URL }}{{ about.photo }}" alt=""> </div>
+  <div class="avatar"> <img src="{{ about.photo.url }}" alt=""> </div>
   <p class="abname">{{ about.get_full_name }}</p>
   <p class="abposition">{{ about.position }}</p>
   <div class="abtext">{{ about.introduction }}</div>
