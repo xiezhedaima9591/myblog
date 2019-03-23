@@ -5,8 +5,8 @@
   <div class="infos">
     <div class="newsview">
       <h3 class="news_title">{{ post.title }}</h3>
-      <div class="news_author"><span class="au01"><a href="mailto:dancesmiling@qq.com">{{ post.author.get_full_name }}</a></span><span class="au02">{{ post.create_time | date:"Y-m-j" }}</span><span class="au03">共<b><script src="/e/public/ViewClick/?classid=5&amp;id=816&amp;addclick=1"></script>{{ post.views }}</b>次浏览</span></div>
-      <div class="tags"><a href="/e/tags/?tagname=%B8%F6%C8%CB%B2%A9%BF%CD&amp;tempid=13" target="_blank">{{ post.category }}</a> &nbsp; <a href="/e/tags/?tagname=%D0%A1%CA%C0%BD%E7&amp;tempid=13" target="_blank">{{ post.tags.first }}</a></div>
+      <div class="news_author"><span class="au01">{{ post.author.get_full_name }}</span><span class="au02">{{ post.create_time | date:"Y-m-j" }}</span><span class="au03">共<b><script src="/e/public/ViewClick/?classid=5&amp;id=816&amp;addclick=1"></script>{{ post.views }}</b>次浏览</span></div>
+      <div class="tags"><a href="{% url 'blog:category-post-list' post.category.id %}" target="_blank">{{ post.category }}</a> &nbsp; <a href="{% url 'blog:tag-post-list' post.tags.first.id %}" target="_blank">{{ post.tags.first }}</a></div>
       <div class="news_about"><strong>摘&nbsp;要:</strong>{{ post.summary }}</div>
       <div class="news_infos">
           {{ post.body | safe }}
